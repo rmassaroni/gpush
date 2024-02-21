@@ -9,6 +9,10 @@ gpush() {
 }
 
 glink() {
+    if [[ ! -d .git ]]; then
+        echo "Not a Git repository"
+        return 1
+    fi
     if [[ -z $links ]]; then
         echo "No links found"
         return
