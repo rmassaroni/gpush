@@ -7,3 +7,11 @@ gpush() {
         echo "ERROR: Not a Git repository."
     fi
 }
+
+glink() {
+    if [[ -z $links ]]; then
+        echo "No links found"
+        return
+    fi
+
+}
