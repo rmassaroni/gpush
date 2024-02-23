@@ -21,12 +21,10 @@ glink() {
     fi
     
     while IFS= read -r symlink; do
-        #target=$(readlink "$symlink")
-        #if [[ $target != /* ]]; then
-        #    echo $target
-        #fi
         target=$(readlink -f "$symlink")
         echo "Symbolic link: $symlink -> $target"
+        git add "$symlink"
+        git commit -m "Add symbolic link: $symlink -> $target"
     done <<< "$links"
 
 }
