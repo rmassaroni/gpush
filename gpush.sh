@@ -31,10 +31,10 @@ glink() {
 
 gcopy() {
     local source="$1"
-    local destination="$2"
+    local destination="${2:-./$(basename "$source")}"
 
-    if [ -z "$source" ] || [ -z "$destination" ]; then
-        echo "ERROR: Missing parameter(s)"
+    if [ -z "$source" ]; then
+        echo "ERROR: Missing source parameter"
         return 1
     fi
 
