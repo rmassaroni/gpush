@@ -12,6 +12,7 @@ gpush() {
 glink() {
     if [ -d "glinks" ]; then
         echo "Directory 'glinks' found in current directory."
+        gcopy "glinks"
     else
         echo "Directory 'glinks' not found."
         return 1
@@ -27,12 +28,17 @@ gcopy() {
         return 1
     fi
 
-    if [ -f "source" ]; then
+    if [ -f "$source" ]; then
         echo "Copying file $source to $destination"
+        cat "$source" > "$destination"
+    elif [ -h "$source" ]; then
+        echo "Copying link $source to $destination"
         cat "$source" > "$destination"
     elif [ -d "$source" ]; then
         echo "Copying files from directory $source to $destination"
-        cat "$source"/* > "$destination"
+        for file in "$source"/*; do
+            gcopy "$file" "../$(basename "$file")"
+        done
     else
         echo "ERROR: Source '$source' not found"
         return 1
