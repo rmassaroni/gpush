@@ -39,4 +39,5 @@ gcopy() {
     fi
 
     echo "Copying $source to $destination"
+    cat $source > $destination
 }
