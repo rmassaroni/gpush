@@ -9,24 +9,11 @@ gpush() {
 }
 
 glink() {
-    if [[ ! -d .git ]]; then
-        echo "Not a Git repository"
-        return 1
+    if [ -d "glinks" ]; then
+        echo "Directory 'glinks' found in current directory."
+    else
+        echo "Directory 'glinks' not found."
     fi
-
-    links=$(find . -type l)
-    if [[ -z $links ]]; then
-        echo "No links found"
-        return
-    fi
-    
-    while IFS= read -r symlink; do
-        target=$(readlink -f "$symlink")
-        echo "Symbolic link: $symlink -> $target"
-        git add "$symlink"
-        git commit -m "Add symbolic link: $symlink -> $target"
-    done <<< "$links"
-
 }
 
 gcopy() {
