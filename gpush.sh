@@ -5,6 +5,7 @@ gpush() {
         git add --all && git commit -m "$message" && git push -u origin main
     else
         echo "ERROR: Not a Git repository."
+        return 1;
     fi
 }
 
@@ -13,6 +14,7 @@ glink() {
         echo "Directory 'glinks' found in current directory."
     else
         echo "Directory 'glinks' not found."
+        return 1
     fi
 }
 
