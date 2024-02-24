@@ -28,3 +28,15 @@ glink() {
     done <<< "$links"
 
 }
+
+gcopy() {
+    local source="$1"
+    local destination="$2"
+
+    if [ -z "$source" ] || [ -z "$destination" ]; then
+        echo "ERROR: Missing parameter(s)"
+        return 1
+    fi
+
+    echo "Copying $source to $destination"
+}
