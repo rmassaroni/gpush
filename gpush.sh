@@ -27,6 +27,14 @@ gcopy() {
         return 1
     fi
 
-    echo "Copying $source to $destination"
-    cat $source > $destination
+    if [ -f "source" ]; then
+        echo "Copying file $source to $destination"
+        cat "$source" > "$destination"
+    elif [ -d "$source" ]; then
+        echo "Copying files from directory $source to $destination"
+        cat "$source"/* > "$destination"
+    else
+        echo "ERROR: Source '$source' not found"
+        return 1
+    fi
 }
