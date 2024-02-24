@@ -36,8 +36,12 @@ gcopy() {
         cat "$source" > "$destination"
     elif [ -d "$source" ]; then
         echo "Copying files from directory $source to $destination"
-        for file in "$source"/*; do
-            gcopy "$file" "../$(basename "$file")"
+        for file in "$source"/* "$source"/.[!.]*; do
+            #gcopy "$file" "../$(basename "$file")"
+            #[ -e "$file" ] && [ "$file" != "$source"/* ] && [ "$file" != "$source"/. ] && gcopy "$file" "$destination/$(basename "$file")"
+            if [ -e "$file" ] && [ "$file" != "$source/*" ] && [ "$file" != "$source/." ]; then
+                gcopy "$file" "./$(basename "$file")"
+            fi
         done
     else
         echo "ERROR: Source '$source' not found"
