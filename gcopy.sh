@@ -9,11 +9,12 @@ gcopy() {
         return 1
     fi
 
-    if [ -f "$source" ]; then
-        echo "Copying file $source to $destination"
-        cat "$source" > "$destination"
-    elif [ -h "$source" ]; then
-        echo "Copying link $source to $destination"
+    if [ -f "$source" ] || [ -h "$source" ]; then
+        if [ -h "$source" ]; then
+            echo "Copying link $source to $destination"
+        else
+            echo "Copying file $source to $destination"
+        fi
         cat "$source" > "$destination"
     elif [ -d "$source" ]; then
         echo "Copying files from directory $source to $destination"
