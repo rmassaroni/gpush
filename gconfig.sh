@@ -6,4 +6,6 @@ unhide=true #removes "." in copied files
 
 gprint-settings() {
     echo "auto_glink: $auto_glink"
+    echo "require_gcopies: $require_gcopies"
+    echo "unhide: $unhide"
 }
