@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source ./gconfig.sh
+
 gcopy() {
     local source="$1"
     local destination="${2:-./$(basename "$source")}"
@@ -15,7 +17,18 @@ gcopy() {
         else
             echo "Copying file $source to $destination"
         fi
-        cat "$source" > "$destination"
+        
+        if [ "$unhide" = "true" ]; then
+            local basename=$(basename "$destination")
+            if [[ $basename == .* ]]; then
+                echo "unhiding..."
+                #destination="./${destination:2}"
+                basename="${basename:1}"
+                echo "new destination: $basename"
+            fi
+        fi
+        
+        cat "$source" > "./$basename"
     elif [ -d "$source" ]; then
         echo "Copying files from directory $source to $destination"
         for file in "$source"/* "$source"/.[!.]*; do
