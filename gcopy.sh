@@ -1,3 +1,5 @@
+#!/bin/bash
+
 gcopy() {
     local source="$1"
     local destination="${2:-./$(basename "$source")}"
