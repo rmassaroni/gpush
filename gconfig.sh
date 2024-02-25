@@ -1,3 +1,7 @@
 #!/bin/bash
 
-GlobalVariable=2
+auto_glink=true
+
+gprint-settings() {
+    echo "auto_glink: $auto_glink"
+}
