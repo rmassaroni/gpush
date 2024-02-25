@@ -8,7 +8,7 @@ gpush() {
 
         echo "Git repo found."
 
-        if ["$auto_glink" = true ]; then
+        if ["$auto_glink" = "true" ]; then
             echo "auto-glinking"
             glink
         fi
