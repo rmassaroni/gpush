@@ -1,3 +1,7 @@
+#!/bin/bash
+
+source ./gconfig.sh
+
 gpush() {
     if [ -d .git ]; then
         message="${1:-unnamed commit}"
@@ -47,4 +51,8 @@ gcopy() {
         echo "ERROR: Source '$source' not found"
         return 1
     fi
+}
+
+gtest() {
+    echo "var: $GlobalVariable"
 }
