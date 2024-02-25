@@ -9,11 +9,11 @@ gpush() {
         echo "Git repo found."
 
         if [ "$auto_glink" = "true" ]; then
-            echo "auto-glinking"
+            echo "auto-glinking..."
             glink
         fi
 
-        echo "pushing '$message' to main"
+        echo "pushing '$message' to main..."
         git add --all && git commit -m "$message" && git push -u origin main
     else
         echo "ERROR: Not a Git repository."
