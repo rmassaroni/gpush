@@ -3,7 +3,7 @@
 #source ./gcopy.sh
 
 glink() {
-    if [ -d "glinks" ]; then
+    if [ -d ".glinks" ]; then
         echo "Directory 'glinks' found in current directory."
         gcopy "glinks"
     else
