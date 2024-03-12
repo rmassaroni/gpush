@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ./gcopy.sh
+#source ./gcopy.sh
 
 glink() {
     if [ -d "glinks" ]; then

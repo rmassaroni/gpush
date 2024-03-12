@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ./gconfig.sh
+#source ./gconfig.sh
 
 gpush() {
     if [ -d .git ]; then
