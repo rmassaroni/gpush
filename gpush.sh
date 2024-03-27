@@ -20,7 +20,7 @@ gpush() {
             glink
         fi
 
-        echo "pushing '$message' to main..."
+        echo "pushing '$message' to '$branch'..."
         git -C "$current_dir" add --all && git -C "$current_dir" commit -m "$message" && git -C "$current_dir" push -u origin "$branch"
     else
         echo "ERROR: Not a Git repository."
