@@ -6,6 +6,7 @@ unhide=true #removes "." in copied files
 default_message="unnamed commit"
 default_branch="main"
 glink_dir="./"
+silent_gpush=false
 
 
 gprint-settings() {
