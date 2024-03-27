@@ -11,6 +11,7 @@ gpush() {
 
     if [ -d "$current_dir/.git" ]; then
         message="${1:-unnamed commit}"
+        branch="${2:-main}"
 
         echo "Git repo found: $current_dir"
 
@@ -20,7 +21,7 @@ gpush() {
         fi
 
         echo "pushing '$message' to main..."
-        git -C "$current_dir" add --all && git -C "$current_dir" commit -m "$message" && git -C "$current_dir" push -u origin main
+        git -C "$current_dir" add --all && git -C "$current_dir" commit -m "$message" && git -C "$current_dir" push -u origin "$branch"
     else
         echo "ERROR: Not a Git repository."
         return 1;
