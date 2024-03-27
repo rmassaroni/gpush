@@ -3,10 +3,16 @@
 #source ./gconfig.sh
 
 gpush() {
-    if [ -d .git ]; then
+    current_dir=$(pwd)
+
+    while [ ! -d "$current_dir/.git" ] && [ "$current_dir" != "/" ]; do
+        current_dir=$(dirname "$current_dir")
+    done
+
+    if [ -d "$current_dir/.git" ]; then
         message="${1:-unnamed commit}"
 
-        echo "Git repo found."
+        echo "Git repo found: $current_dir"
 
         if [ "$auto_glink" = "true" ]; then
             echo "auto-glinking..."
@@ -14,7 +20,7 @@ gpush() {
         fi
 
         echo "pushing '$message' to main..."
-        git add --all && git commit -m "$message" && git push -u origin main
+        git -C "$current_dir" add --all && git -C "$current_dir" commit -m "$message" && git -C "$current_dir" push -u origin main
     else
         echo "ERROR: Not a Git repository."
         return 1;
