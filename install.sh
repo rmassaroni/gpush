@@ -5,7 +5,8 @@ if [ -f "$HOME/gpush.sh" ]; then
     exit 1
 fi
 
-curl -sSL -o "$HOME/gpush" https://github.com/rmassaroni/gpush/gpush
+curl -sSL -o "$HOME/gpush.sh" https://github.com/rmassaroni/gpush/gpush
+chmod +x $HOME/gpush.sh
 echo "export PATH=\"\$HOME:\$PATH\"" >> "$HOME/.zshrc"
 source "$HOME/.zshrc"
 
