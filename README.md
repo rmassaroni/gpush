@@ -1,5 +1,8 @@
 gpush allows one to add, commit, and push with one command.
 
+Installation:
+- bash <(curl https://raw.githubusercontent.com/rmassaroni/gpush/main/install.sh)
+
 Precedure:
 - The gpush() -message -branch function searches for a Git repo and return an error if it fails to find one.
 - If found, it adds all changes, commits with a chosen message, and pushes to a chosen branch.
