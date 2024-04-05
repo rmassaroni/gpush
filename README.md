@@ -14,4 +14,5 @@ TODO:
 - glink() and gcopy() search for a dotfiles directory.
 - Make files executable instead of using functions.
 - Clean up README.
+- Uninstallation.
 
