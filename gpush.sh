@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 #source ./gconfig.sh
 
@@ -30,4 +30,4 @@ gpush() {
 
 
 
-
+gpush()
