@@ -11,8 +11,6 @@ glink() {
         quiet=true 
         shift
     fi
-    echo "$quiet"
-
 
     if [ -d ".glinks" ]; then
         echo "Directory 'glinks' found in current directory."
