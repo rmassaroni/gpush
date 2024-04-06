@@ -7,6 +7,7 @@ gpush() {
     is_quiet() {
         [ "$1" = "-q" ]
     }
+    echo "is_quiet: $is_quiet"
     current_dir=$(pwd)
 
     if is_quiet "$1"; then
