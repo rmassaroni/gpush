@@ -18,7 +18,7 @@ glink() {
         echo "Directory 'glinks' found in current directory."
         gcopy ".glinks"
     else
-        if [ "$quiet" = true ]; then
+        if [ "$quiet" = false ]; then
             echo "Directory '.glinks' not found."
         fi
         return 1
