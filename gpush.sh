@@ -12,7 +12,6 @@ gpush() {
 
     if is_quiet "$1"; then
         quiet=true
-        echo "$quiet"
         shift
     fi
 
@@ -50,6 +49,7 @@ gpush() {
             echo "pushing '$message' to '$branch'..."
             git -C "$current_dir" add --all && git -C "$current_dir" commit -m "$message" && git -C "$current_dir" push -u origin "$branch"
         fi
+        echo "pushed '$message' to '$branch'"
     else
         echo "ERROR: Not a Git repository."
         return 1;
