@@ -7,6 +7,7 @@ gpush() {
     is_quiet() {
         [[ "$1" = "-q" ]]
     }
+    quiet=false
     current_dir=$(pwd)
 
     if is_quiet "$1"; then
@@ -23,7 +24,8 @@ gpush() {
         message="${1:-unnamed commit}"
         branch="${2:-main}"
 
-        if is_quiet "$1"; then
+        #if is_quiet "$1"; then
+        if [ "$quiet" = true ]; then
             exec 1>/dev/null
             exec 2>/dev/null
         else
@@ -31,7 +33,8 @@ gpush() {
         fi
 
         if [ "$auto_glink" = "true" ]; then
-            if is_quiet "$1"; then
+            #if is_quiet "$1"; then
+            if [ "$quiet" = true ]; then
                 #glink -q #need to first make glink -q
                 glink
             else
@@ -40,7 +43,8 @@ gpush() {
             fi
         fi
 
-        if is_quiet "$1"; then
+        #if is_quiet "$1"; then
+        if [ "$quiet" = true ]; then
             git -C "$current_dir" add --all && git -C "$current_dir" commit -m "$message" && git -C "$current_dir" push -u origin "$branch" >/dev/null 2>&1
         else
             echo "pushing '$message' to '$branch'..."
