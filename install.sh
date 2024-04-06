@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ -f "$HOME/.gpush/gpush" ]; then
+if [ -f "$HOME/.gpush/gpush.sh" ]; then
     echo "gpush.sh already exists in the home directory."
     exit 1
 fi
@@ -8,7 +8,7 @@ fi
 #curl -sSL -o "$HOME/gpush.sh" https://github.com/rmassaroni/gpush/gpush
 mkdir -p $HOME/.gpush
 git clone https://github.com/rmassaroni/gpush $HOME/.gpush
-chmod +x $HOME/.gpush/gpush
+chmod +x $HOME/.gpush/gpush.sh
 echo "export PATH=\"\$HOME/.gpush:\$PATH\"" >> "$HOME/.zshrc"
 source "$HOME/.zshrc"
 
