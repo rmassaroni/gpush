@@ -35,7 +35,7 @@ gpush() {
             #if is_quiet "$1"; then
             if [ "$quiet" = true ]; then
                 #glink -q #need to first make glink -q
-                glink
+                glink -q
             else
                 echo "auto-glinking..."
                 glink
