@@ -44,7 +44,7 @@ gpush() {
 
         #if is_quiet "$1"; then
         if [ "$quiet" = true ]; then
-            git -C "$current_dir" add --all && git -C "$current_dir" commit -m "$message" && git -C "$current_dir" push -u -q origin "$branch"
+            git -C "$current_dir" add --all && git -C "$current_dir" commit -q -m "$message" && git -C "$current_dir" push -u -q origin "$branch"
         else
             echo "pushing '$message' to '$branch'..."
             git -C "$current_dir" add --all && git -C "$current_dir" commit -m "$message" && git -C "$current_dir" push -u origin "$branch"
