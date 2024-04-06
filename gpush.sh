@@ -25,8 +25,8 @@ gpush() {
 
         #if is_quiet "$1"; then
         if [ "$quiet" = true ]; then
-            exec 1>/dev/null
-            exec 2>/dev/null
+            #exec 1>/dev/null
+            #exec 2>/dev/null
         else
             echo "Git repo found: $current_dir"
         fi
@@ -44,7 +44,7 @@ gpush() {
 
         #if is_quiet "$1"; then
         if [ "$quiet" = true ]; then
-            git -C "$current_dir" add --all && git -C "$current_dir" commit -m "$message" && git -C "$current_dir" push -u origin "$branch" >/dev/null 2>&1
+            git -C "$current_dir" add --all && git -C "$current_dir" commit -m "$message" && git -C "$current_dir" push -u -q origin "$branch"
         else
             echo "pushing '$message' to '$branch'..."
             git -C "$current_dir" add --all && git -C "$current_dir" commit -m "$message" && git -C "$current_dir" push -u origin "$branch"
