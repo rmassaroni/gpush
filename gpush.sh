@@ -7,13 +7,12 @@ gpush() {
     is_quiet() {
         [[ "$1" = "-q" ]]
     }
-    echo "$1"
     current_dir=$(pwd)
 
     if is_quiet "$1"; then
+        quiet=True
         shift
     fi
-    echo "$1"
 
     while [ ! -d "$current_dir/.git" ] && [ "$current_dir" != "/" ]; do
         current_dir=$(dirname "$current_dir")
