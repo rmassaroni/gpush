@@ -2,11 +2,11 @@
 
 #source ./gconfig.sh
 
-is_quiet() {
-    [[ "$1" == "-q"]]
-}
 
 gpush() {
+    is_quiet() {
+        [ "$1" = "-q" ]
+    }
     current_dir=$(pwd)
 
     if is_quiet "$1"; then
