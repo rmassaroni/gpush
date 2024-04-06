@@ -10,7 +10,8 @@ gpush() {
     current_dir=$(pwd)
 
     if is_quiet "$1"; then
-        quiet=True
+        quiet=true
+        echo "$quiet"
         shift
     fi
 
