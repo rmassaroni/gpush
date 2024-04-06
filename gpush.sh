@@ -24,10 +24,7 @@ gpush() {
         branch="${2:-main}"
 
         #if is_quiet "$1"; then
-        if [ "$quiet" = true ]; then
-            #exec 1>/dev/null
-            #exec 2>/dev/null
-        else
+        if [ "$quiet" = false ]; then
             echo "Git repo found: $current_dir"
         fi
 
