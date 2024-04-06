@@ -2,9 +2,16 @@
 
 #source ./gconfig.sh
 
+is_quiet() {
+    [[ "$1" == "-q"]]
+}
+
 gpush() {
-    echo "gpush test"
     current_dir=$(pwd)
+
+    if is_quiet "$1"; then
+        shift
+    fi
 
     while [ ! -d "$current_dir/.git" ] && [ "$current_dir" != "/" ]; do
         current_dir=$(dirname "$current_dir")
@@ -14,15 +21,29 @@ gpush() {
         message="${1:-unnamed commit}"
         branch="${2:-main}"
 
-        echo "Git repo found: $current_dir"
-
-        if [ "$auto_glink" = "true" ]; then
-            echo "auto-glinking..."
-            glink
+        if is_quiet "$1"; then
+            exec 1>/dev/null
+            exec 2>/dev/null
+        else
+            echo "Git repo found: $current_dir"
         fi
 
-        echo "pushing '$message' to '$branch'..."
-        git -C "$current_dir" add --all && git -C "$current_dir" commit -m "$message" && git -C "$current_dir" push -u origin "$branch"
+        if [ "$auto_glink" = "true" ]; then
+            if is_quiet "$1"; then
+                #glink -q #need to first make glink -q
+                glink
+            else
+                echo "auto-glinking..."
+                glink
+            fi
+        fi
+
+        if is_quiet "$1"; then
+            git -C "$current_dir" add --all && git -C "$current_dir" commit -m "$message" && git -C "$current_dir" push -u origin "$branch" >/dev/null 2>&1
+        else
+            echo "pushing '$message' to '$branch'..."
+            git -C "$current_dir" add --all && git -C "$current_dir" commit -m "$message" && git -C "$current_dir" push -u origin "$branch"
+        fi
     else
         echo "ERROR: Not a Git repository."
         return 1;
