@@ -3,6 +3,7 @@
 #source ./gconfig.sh
 
 gpush() {
+    echo "gpush test"
     current_dir=$(pwd)
 
     while [ ! -d "$current_dir/.git" ] && [ "$current_dir" != "/" ]; do
