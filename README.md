@@ -21,4 +21,5 @@ TODO:
 - Make files executable instead of using functions.
 - Clean up README.
 - Uninstallation.
+- ginit command
 
