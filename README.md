@@ -22,4 +22,5 @@ bash <(curl https://raw.githubusercontent.com/rmassaroni/gpush/main/install.sh)
 - Clean up README.
 - Uninstallation.
 - ginit command
+- .git should not be included in clone
 
