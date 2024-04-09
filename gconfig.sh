@@ -7,6 +7,7 @@ default_message="unnamed commit"
 default_branch="main"
 glink_dir="./"
 silent_gpush=false
+git_usr=""
 
 
 gprint-settings() {
