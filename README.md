@@ -24,6 +24,7 @@ bash <(curl https://raw.githubusercontent.com/rmassaroni/gpush/main/install.sh)
 - ginit command
 - .git should not be included in clone
 - add git username to config
+- specify default config opts vs custom
 
 ## Known Bugs:
 
