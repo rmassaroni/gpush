@@ -1,4 +1,4 @@
-#Be More Efficient
+# Be More Efficient
 gpush allows one to add, commit, and push with one command.
 
 Installation:
