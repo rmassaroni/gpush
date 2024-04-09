@@ -23,6 +23,7 @@ bash <(curl https://raw.githubusercontent.com/rmassaroni/gpush/main/install.sh)
 - Uninstallation.
 - ginit command
 - .git should not be included in clone
+- add git username to config
 
 ## Known Bugs:
 
