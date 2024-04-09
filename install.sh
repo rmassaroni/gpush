@@ -11,7 +11,8 @@ if [ -f "$HOME/.gpush/gpush.sh" ]; then
 else
     #curl -sSL -o "$HOME/gpush.sh" https://github.com/rmassaroni/gpush/gpush
     mkdir -p $HOME/.gpush
-    git clone https://github.com/rmassaroni/gpush $HOME/.gpush
+    #git clone https://github.com/rmassaroni/gpush $HOME/.gpush
+    git clone --depth 1 https://github.com/rmassaroni/gpush $HOME/.gpush
     chmod +x $HOME/.gpush/gpush.sh
     echo "export PATH=\"\$HOME/.gpush:\$PATH\"" >> "$HOME/.zshrc"
     source "$HOME/.zshrc"
