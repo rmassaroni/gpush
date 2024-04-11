@@ -1,5 +1,6 @@
 # Be More Efficient
 gpush allows one to add, commit, and push with one command.
+For the neovim plugin, see [rmassaroni/nvim-gpush](https://github.com/rmassaroni/nvim-gpush)
 
 Installation:
 ```bash
