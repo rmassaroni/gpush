@@ -26,6 +26,7 @@ bash <(curl https://raw.githubusercontent.com/rmassaroni/gpush/main/install.sh)
 - .git should not be included in clone
 - add git username to config
 - specify default config opts vs custom
+- commit but not push option. for multiple commits per push.
 
 ## Known Bugs:
 
