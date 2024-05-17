@@ -4,6 +4,7 @@
 
 
 gpush() {
+    echo "test"
     is_quiet() {
         [[ "$1" = "-q" ]]
     }
@@ -15,6 +16,7 @@ gpush() {
         shift
     fi
 
+    quiet=false
     while [ ! -d "$current_dir/.git" ] && [ "$current_dir" != "/" ]; do
         current_dir=$(dirname "$current_dir")
     done
@@ -54,4 +56,5 @@ gpush() {
 }
 
 
+gpush
 
