@@ -1,8 +1,5 @@
 #!/bin/zsh
 
-#source ./gconfig.sh
-
-
 gpush() {
     echo "test"
     echo "auto_glink"
@@ -61,5 +58,5 @@ gpush() {
 }
 
 
-gpush
-
+echo "$auto_glink"
+echo "$default_branch"
