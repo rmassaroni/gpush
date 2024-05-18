@@ -1,12 +1,11 @@
 #!/bin/zsh
 
+dir="$HOME/projects/gpush"
+source "$dir"/gcopy.sh
+source "$dir"/ginit.sh
+source "$dir"/glink.sh
+
 gpush() {
-    echo "test"
-    echo "auto_glink"
-
-
-
-
     is_quiet() {
         [[ "$1" = "-q" ]]
     }
@@ -58,5 +57,3 @@ gpush() {
 }
 
 
-echo "$auto_glink"
-echo "$default_branch"
