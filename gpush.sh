@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-dir="$HOME/projects/gpush"
+dir="$HOME/.gpush"
 source "$dir"/gcopy.sh
 source "$dir"/ginit.sh
 source "$dir"/glink.sh
