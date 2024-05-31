@@ -17,8 +17,27 @@ fi
     git clone https://github.com/rmassaroni/gpush $HOME/.gpush
     rm -rf ~/.gpush/.git
     chmod +x $HOME/.gpush/gpush.sh
-    echo "export PATH=\"\$HOME/.gpush:\$PATH\"" >> "$HOME/.zshrc"
-    source "$HOME/.zshrc"
 
-    echo "gpush has been installed to $HOME directory and added to the PATH."
+
+    if [[ ":$PATH:" != *":$HOME/.gpush:"* ]]; then
+        echo "export PATH=\"\$HOME/.gpush:\$PATH\"" >> "$HOME/.zshrc"
+        echo "gpush has been installed to $HOME directory and added to the PATH."
+        source "$HOME/.zshrc"
+    else
+        echo "gpush has been installed to $HOME directory."
+    fi
+
+
+
+
+
+
+
+
+
+
+    # echo "export PATH=\"\$HOME/.gpush:\$PATH\"" >> "$HOME/.zshrc"
+    # source "$HOME/.zshrc"
+    #
+    # echo "gpush has been installed to $HOME directory and added to the PATH."
 #fi
