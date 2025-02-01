@@ -27,6 +27,7 @@ bash <(curl https://raw.githubusercontent.com/rmassaroni/gpush/main/install.sh)
 - add git username to config
 - specify default config opts vs custom
 - commit but not push option. for multiple commits per push.
+- option to autoname commits by the names of the files changed
 
 ## Known Bugs:
 
