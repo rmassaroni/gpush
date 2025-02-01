@@ -46,12 +46,14 @@ gpush() {
         if [ "$quiet" = true ]; then
             git -C "$current_dir" add --all && git -C "$current_dir" commit -q -m "$message" && git -C "$current_dir" push -u -q origin "$branch"
         else
-            echo "pushing '$message' to '$branch'..."
+            # echo "pushing '$message' to '$branch'..."
+            echo "Pushing '$message' to current branch..."
             # git -C "$current_dir" add --all && git -C "$current_dir" commit -m "$message" && git -C "$current_dir" push -u origin "$branch"
             # not specifying branch so that it pushes to the current one
             git -C "$current_dir" add --all && git -C "$current_dir" commit -m "$message" && git -C "$current_dir" push
         fi
-        echo "pushed '$message' to '$branch'"
+        # echo "pushed '$message' to '$branch'"
+        echo "Pushed '$message' to current branch."
     else
         echo "ERROR: Not a Git repository."
         return 1;
