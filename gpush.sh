@@ -47,7 +47,9 @@ gpush() {
             git -C "$current_dir" add --all && git -C "$current_dir" commit -q -m "$message" && git -C "$current_dir" push -u -q origin "$branch"
         else
             echo "pushing '$message' to '$branch'..."
-            git -C "$current_dir" add --all && git -C "$current_dir" commit -m "$message" && git -C "$current_dir" push -u origin "$branch"
+            # git -C "$current_dir" add --all && git -C "$current_dir" commit -m "$message" && git -C "$current_dir" push -u origin "$branch"
+            # not specifying branch so that it pushes to the current one
+            git -C "$current_dir" add --all && git -C "$current_dir" commit -m "$message" && git -C "$current_dir" push
         fi
         echo "pushed '$message' to '$branch'"
     else
